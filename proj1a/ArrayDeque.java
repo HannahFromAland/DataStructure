@@ -5,7 +5,7 @@ public class ArrayDeque<T> {
     private int nextLast;
 
     public ArrayDeque(){
-        item = (T[]) new Object[8];
+        item = (T[]) new Object[100];
         size = 0;
         nextFirst = 0;
         nextLast = 1;
@@ -36,7 +36,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty(){
-        if(item.length == 0) return true;
+        if(size == 0) return true;
         else return false;
     }
 
@@ -59,8 +59,8 @@ public class ArrayDeque<T> {
             T curr = item[nextFirst];
             item[nextFirst] = null;
             size--;
-            if((float)item.length/(float)size <=0.25){
-                resize(size/2);
+            if((float)size/(float)item.length <=0.25){
+                resize(size);
             }
             return curr;
 
@@ -75,8 +75,8 @@ public class ArrayDeque<T> {
             T curr = item[nextLast];
             item[nextLast] = null;
             size--;
-            if((float)item.length/(float)size <=0.25){
-                resize(size/2);
+            if((float)size/(float)item.length <=0.25){
+                resize(size);
             }
             return curr;
         }
