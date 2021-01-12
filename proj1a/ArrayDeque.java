@@ -1,23 +1,23 @@
-public class ArrayDeque<Item> {
-    private Item[] item;
+public class ArrayDeque<T> {
+    private T[] item;
     private int size;
     private int nextFirst;
     private int nextLast;
 
     public ArrayDeque(){
-        item = (Item[]) new Object[100];
+        item = (T[]) new Object[100];
         size = 0;
         nextFirst = 0;
         nextLast = 1;
     }
 
     private void resize(int capacity){
-        Item[] a = (Item[]) new Object[capacity];
+        T[] a = (T[]) new Object[capacity];
         System.arraycopy(item, 0, a ,0 ,size);
         item = a;
     }
 
-    public void addFirst(Item a) {
+    public void addFirst(T a) {
         if(size ==item.length){
             resize(size *2);
         }
@@ -26,7 +26,7 @@ public class ArrayDeque<Item> {
         nextFirst = (nextFirst-1+item.length)%item.length;
     }
 
-    public void addLast(Item a){
+    public void addLast(T a){
         if(size == item.length){
             resize(size *2);
         }
@@ -51,12 +51,12 @@ public class ArrayDeque<Item> {
         System.out.println();
     }
 
-    public Item removeFirst(){
+    public T removeFirst(){
         if(size == 0){
             return null;
         }else{
             nextFirst = (nextFirst+1)% item.length;
-            Item curr = item[nextFirst];
+            T curr = item[nextFirst];
             item[nextFirst] = null;
             size--;
             if((float)item.length/(float)size <=0.25){
@@ -67,12 +67,12 @@ public class ArrayDeque<Item> {
         }
     }
 
-    public Item removeLast(){
+    public T removeLast(){
         if(size == 0){
             return null;
         }else{
             nextLast = (nextLast-1+item.length)% item.length;
-            Item curr = item[nextLast];
+            T curr = item[nextLast];
             item[nextLast] = null;
             size--;
             if((float)item.length/(float)size <=0.25){
@@ -82,7 +82,7 @@ public class ArrayDeque<Item> {
         }
     }
 
-    public Item get(int index){
+    public T get(int index){
         return item[(nextFirst+1+index)%item.length];
     }
 
