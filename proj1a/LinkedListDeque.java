@@ -8,13 +8,13 @@ public class LinkedListDeque<T> {
         private Node next;
         private T item;
 
-        public Node(Node prev, Node next, T item) {
+        Node(Node prev, Node next, T item) {
             this.prev = prev;
             this.next = next;
             this.item = item;
         }
 
-        public Node() {
+        Node() {
             prev = null;
             next = null;
             item = null;
@@ -46,8 +46,10 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0) return true;
-        else return false;
+        if (size == 0) {
+            return true;
+        }
+        return false;
     }
 
     public int size() {
@@ -64,9 +66,9 @@ public class LinkedListDeque<T> {
     }
 
     public T removeFirst() {
-        if (sentinel.next == sentinel){
+        if (sentinel.next == sentinel) {
             return null;
-        }else{
+        } else {
             Node p = sentinel.next;
             sentinel.next = p.next;
             p.next.prev = sentinel;
@@ -75,10 +77,10 @@ public class LinkedListDeque<T> {
         }
     }
 
-    public T removeLast(){
-        if(sentinel.prev ==sentinel){
+    public T removeLast() {
+        if (sentinel.prev == sentinel) {
             return null;
-        }else{
+        } else {
             Node p = sentinel.prev;
             sentinel.prev = p.prev;
             p.prev.next = sentinel;
@@ -87,27 +89,27 @@ public class LinkedListDeque<T> {
         }
     }
 
-    public T get(int index){
-        if(size == 0){
+    public T get(int index) {
+        if (size == 0) {
             return null;
         }
         Node p = sentinel.next;
-        while(index >0){
+        while (index > 0) {
             p = p.next;
             index--;
         }
         return (T) p.item;
     }
 
-    public T getRecursive(int index){
-        return (T) getRecursiveHelper(sentinel.next,index);
+    public T getRecursive(int index) {
+        return (T) getRecursiveHelper(sentinel.next, index);
     }
 
-    private T getRecursiveHelper(Node p, int index){
-        if(index == 0){
+    private T getRecursiveHelper(Node p, int index) {
+        if (index == 0) {
             return (T) p.item;
-        }else{
-            return (T) getRecursiveHelper(p.next,index-1);
+        } else {
+            return (T) getRecursiveHelper(p.next, index - 1);
         }
     }
 }

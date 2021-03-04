@@ -103,13 +103,13 @@ public class ArrayDequeTest {
         lld1.printDeque();
         passed = checkGet(2, lld1.get(3)) && passed;
         lld1.printDeque();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             lld1.addFirst(i);
         }
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             lld1.removeFirst();
         }
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             lld1.addFirst(i);
         }
         lld1.printDeque();
