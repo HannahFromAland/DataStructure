@@ -116,10 +116,21 @@ public class ArrayDequeTest {
         printTestStatus(passed);
     }
 
+    public static void getTest() {
+        ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+        for (int i = 0; i < 40; i++) {
+            lld1.addLast(i);
+        }
+        boolean passed = checkEmpty(false, lld1.isEmpty());
+        passed = checkGet(0, lld1.get(0)) && passed;
+        passed = checkGet(38, lld1.get(38)) && passed;
+    }
+
     public static void main(String[] args) {
         System.out.println("Running tests.\n");
-        addIsEmptySizeTest();
-        addRemoveTest();
-        myTest();
+        //addIsEmptySizeTest();
+        //addRemoveTest();
+        //myTest();
+        getTest();
     }
 }
