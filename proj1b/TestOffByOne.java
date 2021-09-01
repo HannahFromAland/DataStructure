@@ -10,4 +10,19 @@ public class TestOffByOne {
     public void testOffByOne() {
         assertTrue(offByOne.equalChars('&', '%'));
     }
+
+    @Test
+    public void testOffByOne2() {
+        assertTrue(offByOne.equalChars('a', 'b'));
+    }
+
+    @Test
+    public void testOffByOne3() {
+        assertTrue(offByOne.equalChars('r', 'q'));
+    }
+
+    @Test
+    public void testOffByOne4() {
+        assertFalse(offByOne.equalChars('A', 'b'));
+    }
 }
