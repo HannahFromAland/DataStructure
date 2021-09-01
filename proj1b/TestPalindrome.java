@@ -30,8 +30,6 @@ public class TestPalindrome {
 
     @Test
     public void testWordPalindromeCC() {
-        assertTrue(palindrome.isPalindrome("flake",offByOne));
+        assertTrue(palindrome.isPalindrome("flake", offByOne));
     }
-
-
 }

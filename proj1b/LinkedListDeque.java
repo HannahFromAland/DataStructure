@@ -7,7 +7,7 @@ public class LinkedListDeque<Item> implements Deque<Item> {
         private Node next;
         private Item item;
 
-        public Node(Node prev, Node next, Item item) {
+        Node(Node prev, Node next, Item item) {
             this.prev = prev;
             this.next = next;
             this.item = item;
@@ -19,7 +19,7 @@ public class LinkedListDeque<Item> implements Deque<Item> {
      */
     public LinkedListDeque() {
         size = 0;
-        sentinel = new Node(null,null,null);
+        sentinel = new Node(null, null, null);
         sentinel.prev = sentinel;
         sentinel.next = sentinel;
     }
