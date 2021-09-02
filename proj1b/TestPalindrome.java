@@ -19,11 +19,10 @@ public class TestPalindrome {
     @Test
     public void testWordPalindrome1() {
         assertTrue(palindrome.isPalindrome("a"));
-    }
-
-    @Test
-    public void testWordPalindrome2() {
+        assertTrue(palindrome.isPalindrome(""));
+        assertFalse(palindrome.isPalindrome("Hannah"));
         assertTrue(palindrome.isPalindrome("hannah"));
+        assertTrue(palindrome.isPalindrome("uhu"));
     }
 
     static CharacterComparator offByOne = new OffByOne();
@@ -33,3 +32,5 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("flake", offByOne));
     }
 }
+
+
