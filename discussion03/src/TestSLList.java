@@ -41,7 +41,7 @@ public class TestSLList {
 
         a = new SLList(1, null);
         a.reverse();
-        assertEquals(0, a.get(0));
+        assertEquals(1, a.get(0));
 
 
     }
